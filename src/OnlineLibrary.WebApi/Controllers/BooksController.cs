@@ -13,21 +13,18 @@ namespace OnlineLibrary.WebApi.Controllers
     public class BooksController : ControllerBase
     {
         private readonly ILogger<BooksController> _logger;
+        private readonly OnlineLibraryContext _context;
 
-        public BooksController(ILogger<BooksController> logger)
+        public BooksController(ILogger<BooksController> logger, OnlineLibraryContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         [HttpGet]
         public IEnumerable<Book> Get()
         {
-            return new Book[]
-            {
-                new Book { Id = 1, Title = "A Brief History of Time" },
-                new Book { Id = 2, Title = "Cooking Book by Martha" },
-                new Book { Id = 3, Title = "Where to travel?" }
-            };
+            return _context.Books.ToList();
         }
     }
 }
