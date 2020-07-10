@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\OnlineLibrary.Data\OnlineLibrary.Data.csproj" />
     <ProjectReference Include="..\OnlineLibrary.Domain\OnlineLibrary.Domain.csproj" />
+    <ProjectReference Include="..\OnlineLibrary.Services\OnlineLibrary.Services.csproj" />
   </ItemGroup>
 
 
