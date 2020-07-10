@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OnlineLibrary.Data;
+using OnlineLibrary.Services;
 
 namespace OnlineLibrary.WebApi
 {
@@ -36,6 +37,8 @@ namespace OnlineLibrary.WebApi
             }));
 
             services.AddControllers();
+
+            services.AddScoped<IBooksService, BooksService>();
 
             services.AddDbContext<OnlineLibraryContext>(opts =>
               opts.UseSqlServer(Configuration.GetConnectionString("OnlineLibrary")));
